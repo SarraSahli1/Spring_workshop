@@ -3,6 +3,7 @@ package esprit.tn.twin.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="Chambre")
@@ -14,5 +15,9 @@ public class Chambre implements Serializable {
     private Long numeroChambre;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
+    @ManyToOne
+    Bloc bloc;
+    @OneToMany
+    private Set<Reservation> Reservations;
 
 }
